@@ -41,7 +41,8 @@ Sophix的核心设计理念，就是非侵入性。
 6.
 ####(2)	添加gradle坐标版本依赖：
 ----------
-1.	compile 'com.aliyun.ams:alicloud-android-hotfix:3.1.6'
+1.	compile \'com.aliyun.ams:alicloud-android-hotfix:3.1.6\'
+
 ####(3)	添加权限：
 ----------
 Sophix SDK使用到以下权限
@@ -51,6 +52,7 @@ Sophix SDK使用到以下权限
 4.	\<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /\>
 5.	\<! -- 外部存储读权限，调试工具加载本地补丁需要 --\>
 6.	\<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/\>
+
 ####(4)	添加认证秘钥
 ----------
 在AndroidManifest.xml中间的application节点下添加如下配置：
@@ -124,5 +126,6 @@ SophixManager.getInstance().queryAndLoadNewPatch();
 
 官方文档地址：
 https://help.aliyun.com/document_detail/53240.html?spm=5176.doc53240.6.546.q1ernk
+
 
 
