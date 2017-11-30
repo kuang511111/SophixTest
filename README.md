@@ -1,37 +1,37 @@
-#SopHix热修复技术
+# SopHix热修复技术
 ==========
 
 
 
-##简介
+## 简介
 ----------
 阿里云移动热修复方案（Sophix）基于阿里巴巴首创hotpatch技术，提供最细粒度热修复能力，无需等待，实时修复应用线上问题
 
 
-##设计理念
+## 设计理念
 ----------
 Sophix的核心设计理念，就是非侵入性。
 我们的打包过程不会侵入到apk的build流程中。我们所需要的，只有已经生成完毕的新旧apk，而至于apk是如何生成的——是Android Studio打包出来的、还是Eclipse打包出来的、或者是自定义的打包流程，我们一律不关心。在生成补丁的过程中间既不会改变任何打包组件，也不插入任何AOP代码，我们极力做到了——不添加任何超出开发者预期的代码，以避免多余的热修复代码给开发者带来困扰。
 
 
-##方案对比
+## 方案对比
 ----------
 ![image](https://github.com/kuang511111/SophixTest/raw/master/Sophix/pic/duibi.png)
 
 
 
-##部署详解
+## 部署详解
 ----------
 
-###1.	创建应用
+### 1.	创建应用
 ----------
 登录移动热修复控制台：https://hotfix.console.aliyun.com/，点击右上角创建App，跳转到Mobile Hub App管理控制台，或者直接访问Mobile Hub控制台：https://mhub.console.aliyun.com/。如下图：
 ![image](https://github.com/kuang511111/SophixTest/raw/master/Sophix/pic/chuanjianapp.png)
 
-###2.	集成
+### 2.	集成
 ----------
 
-####(1)	添加maven仓库地址：
+#### (1)	添加maven仓库地址：
 ----------
 1.	repositories {
 2.	   maven {
@@ -39,11 +39,11 @@ Sophix的核心设计理念，就是非侵入性。
 4.	   }
 5.	}
 6.
-####(2)	添加gradle坐标版本依赖：
+#### (2)	添加gradle坐标版本依赖：
 ----------
 1.	compile \'com.aliyun.ams:alicloud-android-hotfix:3.1.6\'
 
-####(3)	添加权限：
+#### (3)	添加权限：
 ----------
 Sophix SDK使用到以下权限
 1.	\<! -- 网络权限 --\>
@@ -53,7 +53,7 @@ Sophix SDK使用到以下权限
 5.	\<! -- 外部存储读权限，调试工具加载本地补丁需要 --\>
 6.	\<uses-permission android:name=\"android.permission.READ_EXTERNAL_STORAGE\"/\>
 
-####(4)	添加认证秘钥
+#### (4)	添加认证秘钥
 ----------
 在AndroidManifest.xml中间的application节点下添加如下配置：
 1.	\<meta-data
@@ -66,7 +66,7 @@ Sophix SDK使用到以下权限
 8.	android:name=\"com.taobao.android.hotfix.RSASECRET\"
 9.	android:value=\"RSA密钥\" /\>
 
-####(5)	初始化模块
+#### (5)	初始化模块
 ----------
 	// initialize最好放在attachBaseContext最前面，初始化直接在Application类里面，切勿封装到其他类
 	SophixManager.getInstance().setContext(this)
@@ -93,12 +93,12 @@ Sophix SDK使用到以下权限
 
 
 
-##生成补丁
+## 生成补丁
 ----------
 补丁工具地址：<br/>
 https://help.aliyun.com/document_detail/53247.html?spm=5176.doc53248.6.548.mby9GB
 打开如下图：<br/>
-![image](https://github.com/kuang511111/SophixTest/raw/master/Sophix/pic/duibi.png)
+![image](https://github.com/kuang511111/SophixTest/raw/master/Sophix/pic/budinggongju.png)
 
 运行完后会生成<br/>
 ![image](https://github.com/kuang511111/SophixTest/raw/master/Sophix/pic/patchbao.png)
@@ -112,7 +112,7 @@ https://help.aliyun.com/document_detail/53247.html?spm=5176.doc53248.6.548.mby9G
 分别编译，生成patch包。
 
 
-##发布补丁
+## 发布补丁
 ----------
 进入阿里云热修复页面，点击上传补丁，然后发布。
 ![image](https://github.com/kuang511111/SophixTest/raw/master/Sophix/pic/fabuding.png)
@@ -127,6 +127,4 @@ SophixManager.getInstance().queryAndLoadNewPatch();
 
 官方文档地址：
 https://help.aliyun.com/document_detail/53240.html?spm=5176.doc53240.6.546.q1ernk
-
-
 
