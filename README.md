@@ -45,26 +45,24 @@ Sophix的核心设计理念，就是非侵入性。
 ####(3)	添加权限：
 ----------
 Sophix SDK使用到以下权限
-<code>
-1.	<! -- 网络权限 -->
-2.	<uses-permission android:name="android.permission.INTERNET" />
-3.	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-4.	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-5.	<! -- 外部存储读权限，调试工具加载本地补丁需要 -->
-6.	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-</code>
+1.	&lt! -- 网络权限 --&gt
+2.	&ltuses-permission android:name="android.permission.INTERNET" /&gt
+3.	&ltuses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /&gt
+4.	&ltuses-permission android:name="android.permission.ACCESS_WIFI_STATE" /&gt
+5.	&lt! -- 外部存储读权限，调试工具加载本地补丁需要 --&gt
+6.	&ltuses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/&gt
 ####(4)	添加认证秘钥
 ----------
 在AndroidManifest.xml中间的application节点下添加如下配置：
-1.	<meta-data
+1.	&ltmeta-data
 2.	android:name="com.taobao.android.hotfix.IDSECRET"
-3.	android:value="App ID" />
-4.	<meta-data
+3.	android:value="App ID" /&gt
+4.	&ltmeta-data
 5.	android:name="com.taobao.android.hotfix.APPSECRET"
-6.	android:value="App Secret" />
-7.	<meta-data
+6.	android:value="App Secret" /&gt
+7.	&ltmeta-data
 8.	android:name="com.taobao.android.hotfix.RSASECRET"
-9.	android:value="RSA密钥" />
+9.	android:value="RSA密钥" /&gt
 ####(5)	初始化模块
 ----------
 	// initialize最好放在attachBaseContext最前面，初始化直接在Application类里面，切勿封装到其他类
@@ -126,4 +124,5 @@ SophixManager.getInstance().queryAndLoadNewPatch();
 
 官方文档地址：
 https://help.aliyun.com/document_detail/53240.html?spm=5176.doc53240.6.546.q1ernk
+
 
