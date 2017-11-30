@@ -35,7 +35,7 @@ Sophix的核心设计理念，就是非侵入性。
 ----------
 1.	repositories {
 2.	   maven {
-3.	       url "http://maven.aliyun.com/nexus/content/repositories/releases"
+3.	       url \"http://maven.aliyun.com/nexus/content/repositories/releases\"
 4.	   }
 5.	}
 6.
@@ -47,24 +47,25 @@ Sophix的核心设计理念，就是非侵入性。
 ----------
 Sophix SDK使用到以下权限
 1.	\<! -- 网络权限 --\>
-2.	\<uses-permission android:name="android.permission.INTERNET" /\>
-3.	\<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /\>
-4.	\<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /\>
+2.	\<uses-permission android:name=\"android.permission.INTERNET\" /\>
+3.	\<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" /\>
+4.	\<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\" /\>
 5.	\<! -- 外部存储读权限，调试工具加载本地补丁需要 --\>
-6.	\<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/\>
+6.	\<uses-permission android:name=\"android.permission.READ_EXTERNAL_STORAGE\"/\>
 
 ####(4)	添加认证秘钥
 ----------
 在AndroidManifest.xml中间的application节点下添加如下配置：
 1.	\<meta-data
-2.	android:name="com.taobao.android.hotfix.IDSECRET"
-3.	android:value="App ID" /\>
+2.	android:name=\"com.taobao.android.hotfix.IDSECRET\"
+3.	android:value=\"App ID\" /\>
 4.	\<meta-data
-5.	android:name="com.taobao.android.hotfix.APPSECRET"
-6.	android:value="App Secret" /\>
+5.	android:name=\"com.taobao.android.hotfix.APPSECRET\"
+6.	android:value=\"App Secret\" /\>
 7.	\<meta-data
-8.	android:name="com.taobao.android.hotfix.RSASECRET"
-9.	android:value="RSA密钥" /\>
+8.	android:name=\"com.taobao.android.hotfix.RSASECRET\"
+9.	android:value=\"RSA密钥\" /\>
+
 ####(5)	初始化模块
 ----------
 	// initialize最好放在attachBaseContext最前面，初始化直接在Application类里面，切勿封装到其他类
@@ -94,18 +95,18 @@ Sophix SDK使用到以下权限
 
 ##生成补丁
 ----------
-补丁工具地址：
+补丁工具地址：<br/>
 https://help.aliyun.com/document_detail/53247.html?spm=5176.doc53248.6.548.mby9GB
-打开如下图：
+打开如下图：<br/>
 ![image](https://github.com/kuang511111/SophixTest/raw/master/Sophix/pic/duibi.png)
 
-运行完后会生成
+运行完后会生成<br/>
 ![image](https://github.com/kuang511111/SophixTest/raw/master/Sophix/pic/patchbao.png)
 
-第一个版本代码为
+第一个版本代码为<br/>
 ![image](https://github.com/kuang511111/SophixTest/raw/master/Sophix/pic/daima1.png)
 
-第二个版本代码为
+第二个版本代码为<br/>
 ![image](https://github.com/kuang511111/SophixTest/raw/master/Sophix/pic/daima2.png)
 
 分别编译，生成patch包。
