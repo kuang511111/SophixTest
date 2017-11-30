@@ -16,7 +16,6 @@ Sophix的核心设计理念，就是非侵入性。
 
 ##方案对比
 ----------
-![image](https://github.com/kuang511111/SophixTest/tree/master/Sophix/pic/duibi.png)
 ![image](https://github.com/kuang511111/SophixTest/raw/master/Sophix/pic/duibi.png)
 
 
@@ -46,12 +45,14 @@ Sophix的核心设计理念，就是非侵入性。
 ####(3)	添加权限：
 ----------
 Sophix SDK使用到以下权限
+<code>
 1.	<! -- 网络权限 -->
 2.	<uses-permission android:name="android.permission.INTERNET" />
 3.	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 4.	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 5.	<! -- 外部存储读权限，调试工具加载本地补丁需要 -->
 6.	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+</code>
 ####(4)	添加认证秘钥
 ----------
 在AndroidManifest.xml中间的application节点下添加如下配置：
